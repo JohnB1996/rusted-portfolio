@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - John Bhujel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <style>
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-form-container {
+                max-width: 100%;
+                margin: 0;
+            }
+            
+            div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+            
+            .personal-intro > div {
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .personal-intro > div:first-child {
+                padding: 1.5rem !important;
+            }
+            
+            .personal-intro > div:nth-child(2) {
+                padding: 1.5rem !important;
+            }
+            
+            .personal-intro > div:nth-child(3) {
+                padding: 1.5rem !important;
+            }
+            
+            .personal-intro > div:last-child {
+                padding: 1rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+            
+            .personal-intro > div {
+                padding: 1rem !important;
+            }
+            
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">JB</a>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="contact-form" style="padding: 120px 0 80px;">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+            
+            <h1 class="section-title">Get In Touch</h1>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                Have a question or want to work together? Send me a message!
+            </p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                <!-- Left Column - Personal Introduction -->
+                <div class="personal-intro">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">John Bhujel</h3>
+                        <p style="margin-bottom: 1.5rem; line-height: 1.6;">
+                            I'm a seasoned application architect and full-stack developer who began in C# and Node.js before embracing Flutter's elegance to design cohesive, maintainable systems that just work, day in and day out.
+                        </p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                        <h4 style="color: #333; margin-bottom: 1rem;">What I Bring to the Table:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">▸</span>
+                                <strong>Solution Design:</strong> I break down complex requirements into clear, scalable components
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">▸</span>
+                                <strong>Technical Leadership:</strong> From API contracts to data modeling, I set the bar high
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">▸</span>
+                                <strong>State & Persistence Strategy:</strong> With BLoC and Hydrated BLoC, I ensure your app remembers what matters
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">▸</span>
+                                <strong>End-to-End E-Commerce Architecture:</strong> Complete shopping journey mapping
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">▸</span>
+                                <strong>Toolchain & Infrastructure Planning:</strong> CI/CD pipelines, ESLint (v9+), ShadCN/Material-UI
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #e8f4fd; padding: 2rem; border-radius: 12px; border-left: 4px solid #667eea;">
+                        <p style="margin-bottom: 1rem; font-style: italic; color: #333;">
+                            "When I'm not sketching system diagrams or refining architecture docs, you'll find me unwinding with coding puzzles—because even architects need a little 'bug hunt' thrill now and then! 😄"
+                        </p>
+                        <p style="font-weight: 600; color: #667eea; margin: 0;">
+                            Let's build something epic together.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 8px; border: 1px solid #e1e5e9;">
+                        <h4 style="color: #333; margin-bottom: 1rem;">📬 Contact Information:</h4>
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>Email:</strong> <a href="mailto:john.bhujel@example.com" style="color: #667eea; text-decoration: none;">john.bhujel@example.com</a>
+                        </p>
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/johnbhujel" target="_blank" style="color: #667eea; text-decoration: none;">linkedin.com/in/johnbhujel</a>
+                        </p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #666;">
+                            Available for freelance projects, full-time opportunities, and technical consulting.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Contact Form -->
+                <div class="contact-form-container">
+                    <div id="alert" class="alert"></div>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="Job Opportunity">Job Opportunity</option>
+                                <option value="Project Collaboration">Project Collaboration</option>
+                                <option value="Freelance Work">Freelance Work</option>
+                                <option value="Technical Consulting">Technical Consulting</option>
+                                <option value="Architecture Review">Architecture Review</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Technical Question">Technical Question</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell me about your project, technical challenge, or how we can work together..."></textarea>
+                        </div>
+                        
+                        <div class="loading" id="loading">
+                            <div class="spinner"></div>
+                            <p>Sending your message...</p>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 John Bhujel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="js/contact-form.js"></script>
+</body>
+</html>
